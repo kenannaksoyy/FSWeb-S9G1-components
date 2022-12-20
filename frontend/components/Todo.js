@@ -4,13 +4,17 @@ export default function Todo(props) {
   const {yapilacak,yapilacaklar,setYapilacaklar, gizle} = props
   
   const handleClick = () => {
-    setYapilacaklar(
-      yapilacaklar.map((y) => {
-          if (y.id === yapilacak.id) return { ...y, tamamlandi: !(y.tamamlandi) };
+      let arr= yapilacaklar.map( y => {
+        if(y.id === yapilacak.id ){
+          y.tamamlandi=!(y.tamamlandi);
           return y;
-        })
-      );
+        }
+        return y;
+      });
+      
+      setYapilacaklar(arr);
     };
+    
   
     return (
       
